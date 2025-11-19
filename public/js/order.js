@@ -6,10 +6,19 @@ orderForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const formData = new FormData(orderForm);
+    // Helper to get all checked values for a name
+    const getCheckedValues = (name) => {
+        return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
+            .map(cb => cb.value);
+    };
+
     const orderData = {
-        customerName: formData.get('customerName'),
-        tableNumber: formData.get('tableNumber'),
-        items: formData.get('items'),
+        // Specific Fields
+        portion: formData.get('portion'),
+        diningType: formData.get('diningType'),
+        spicyLevel: formData.get('spicyLevel'),
+        withOptions: getCheckedValues('withOptions'),
+        withoutOptions: getCheckedValues('withoutOptions'),
         notes: formData.get('notes')
     };
 

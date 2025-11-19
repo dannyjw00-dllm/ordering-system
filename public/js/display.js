@@ -26,15 +26,32 @@ function renderOrders(orders) {
 
         card.innerHTML = `
             <div class="card-header">
-                <span class="table-num">${order.tableNumber ? 'Table ' + order.tableNumber : 'Takeout'}</span>
+                <span class="table-num">${order.diningType}</span>
                 <span class="time">${timeElapsed}m ago</span>
             </div>
             <div class="card-body">
-                <h3>${order.customerName}</h3>
-                <div class="items-list">
-                    ${order.items.split('\n').map(item => `<p>${item}</p>`).join('')}
+                <div class="meta-info">
+                    <span class="badge-outline">📏 ${order.portion}</span>
+                    <span class="badge-outline">🌶️ ${order.spicyLevel}</span>
                 </div>
-                ${order.notes ? `<p class="notes"><strong>Note:</strong> ${order.notes}</p>` : ''}
+
+                ${order.withOptions && order.withOptions.length > 0 ? `
+                <div class="meta-group">
+                    <strong>要 With:</strong>
+                    <div class="tags">
+                        ${order.withOptions.map(opt => `<span class="badge-success">${opt}</span>`).join('')}
+                    </div>
+                </div>` : ''}
+
+                ${order.withoutOptions && order.withoutOptions.length > 0 ? `
+                <div class="meta-group">
+                    <strong>不要 Without:</strong>
+                    <div class="tags">
+                        ${order.withoutOptions.map(opt => `<span class="badge-danger">${opt}</span>`).join('')}
+                    </div>
+                </div>` : ''}
+
+                ${order.notes ? `<p class="notes"><strong>Remarks:</strong> ${order.notes}</p>` : ''}
             </div>
             <div class="card-footer">
                 <button class="btn-complete" onclick="completeOrder('${order.id}')">Complete</button>
