@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="order-page">
+    <div class="container">
+        <h1>Place an Order</h1>
+        <form id="orderForm">
+            <div class="form-group">
+                <label for="customerName">Customer Name</label>
+                <input type="text" id="customerName" name="customerName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tableNumber">Table Number (Optional)</label>
+                <input type="number" id="tableNumber" name="tableNumber">
+            </div>
+
+            <div class="form-group">
+                <label for="items">Items Ordered</label>
+                <textarea id="items" name="items" rows="4" placeholder="E.g., 2x Burger, 1x Fries" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Special Instructions</label>
+                <textarea id="notes" name="notes" rows="2"></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Submit Order</button>
+        </form>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/order.js"></script>
+</body>
+</html>
