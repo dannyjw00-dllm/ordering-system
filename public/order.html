@@ -19,22 +19,21 @@
                 <form id="orderForm">
                     <!-- Name & H/P No. -->
                     <div class="form-group">
-                        <label for="customerName">Name & H/P No. (Last 5 Digit)</label>
-                        <input type="text" id="customerName" name="customerName" placeholder="e.g. Danny 12345"
-                            required>
+                        <label for="customerName">Name & H/P No. (Last 5 Digit)*</label>
+                        <input type="text" id="customerName" name="customerName" placeholder="e.g: 12345" required>
                     </div>
 
                     <!-- Row 1: Portion & Dining Type -->
                     <div class="form-row">
                         <div class="form-group half">
-                            <label for="portion">分量 Portion</label>
+                            <label for="portion">分量 Portion*</label>
                             <select id="portion" name="portion" required>
                                 <option value="大 Big">大 Big</option>
                                 <option value="小 Small">小 Small</option>
                             </select>
                         </div>
                         <div class="form-group half">
-                            <label for="diningType">Dining Type</label>
+                            <label for="diningType">Dining Type*</label>
                             <select id="diningType" name="diningType" required>
                                 <option value="堂食 Dine In">堂食 Dine In</option>
                                 <option value="打包 Take Away">打包 Take Away</option>
@@ -122,7 +121,7 @@
 
                     <!-- Payment Method -->
                     <div class="form-group">
-                        <label for="paymentMethod">付款方式 Pay by</label>
+                        <label for="paymentMethod">付款方式 Pay by*</label>
                         <select id="paymentMethod" name="paymentMethod" required>
                             <option value="QR Pay">QR Pay</option>
                             <option value="Cash">Cash</option>
