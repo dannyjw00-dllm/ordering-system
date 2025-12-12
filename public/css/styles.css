@@ -39,6 +39,7 @@ body {
 }
 
 /* Container */
+/* Keep generic container for other pages if needed, but defining specific for order page */
 .container {
     max-width: 640px;
     margin: 3rem auto;
@@ -46,6 +47,41 @@ body {
     background: var(--card-bg);
     border-radius: var(--radius);
     box-shadow: var(--shadow-md);
+}
+
+/* Split Layout */
+.split-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 1rem;
+    align-items: flex-start;
+    /* Align top */
+}
+
+.left-panel,
+.right-panel {
+    flex: 1;
+    min-width: 320px;
+    /* Force stack on small screens */
+}
+
+.menu-image {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    display: block;
+}
+
+.form-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    width: 100%;
 }
 
 h1 {
@@ -381,7 +417,9 @@ input:focus {
 
 /* Responsive */
 @media (max-width: 640px) {
-    .container {
+
+    .container,
+    .form-card {
         margin: 1rem;
         padding: 1.5rem;
     }

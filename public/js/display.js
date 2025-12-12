@@ -26,13 +26,17 @@ function renderOrders(orders) {
 
         card.innerHTML = `
             <div class="card-header">
-                <span class="table-num">${order.diningType}</span>
+                <div>
+                    <span class="table-num">${order.diningType}</span>
+                    <div style="font-size: 0.9em; color: #d1d5db; margin-top: 4px;">${order.customerName || 'No Name'}</div>
+                </div>
                 <span class="time">${timeElapsed}m ago</span>
             </div>
             <div class="card-body">
                 <div class="meta-info">
                     <span class="badge-outline">📏 ${order.portion}</span>
-                    <span class="badge-outline">🌶️ ${order.spicyLevel}</span>
+                    <span class="badge-outline">🌶️ ${order.spicyLevel || 'No spiciness'}</span>
+                    <span class="badge-outline">💳 ${order.paymentMethod || 'Unknown'}</span>
                 </div>
 
                 ${order.withOptions && order.withOptions.length > 0 ? `
@@ -48,6 +52,22 @@ function renderOrders(orders) {
                     <strong>不要 Without:</strong>
                     <div class="tags">
                         ${order.withoutOptions.map(opt => `<span class="badge-danger">${opt}</span>`).join('')}
+                    </div>
+                </div>` : ''}
+
+                ${order.alaCart150 && order.alaCart150.length > 0 ? `
+                <div class="meta-group">
+                    <strong>单点 (+RM1.50):</strong>
+                    <div class="tags">
+                        ${order.alaCart150.map(opt => `<span class="badge-outline" style="border-color: #f59e0b; color: #f59e0b;">${opt}</span>`).join('')}
+                    </div>
+                </div>` : ''}
+
+                ${order.alaCart200 && order.alaCart200.length > 0 ? `
+                <div class="meta-group">
+                    <strong>单点 (+RM2.00):</strong>
+                    <div class="tags">
+                        ${order.alaCart200.map(opt => `<span class="badge-outline" style="border-color: #8b5cf6; color: #8b5cf6;">${opt}</span>`).join('')}
                     </div>
                 </div>` : ''}
 

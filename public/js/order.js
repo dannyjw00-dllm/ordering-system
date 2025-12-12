@@ -13,13 +13,17 @@ orderForm.addEventListener('submit', (e) => {
     };
 
     const orderData = {
-        // Specific Fields
+        customerName: formData.get('customerName'),
         portion: formData.get('portion'),
         diningType: formData.get('diningType'),
-        spicyLevel: formData.get('spicyLevel'),
+        spicyLevel: formData.get('spicyLevel'), // Radio button works same as select for FormData if checked
         withOptions: getCheckedValues('withOptions'),
         withoutOptions: getCheckedValues('withoutOptions'),
-        notes: formData.get('notes')
+        alaCart150: getCheckedValues('alaCart150'),
+        alaCart200: getCheckedValues('alaCart200'),
+        paymentMethod: formData.get('paymentMethod'),
+        notes: formData.get('notes'),
+        timestamp: new Date() // Ensure timestamp is added for display ordering logic
     };
 
     // Emit event to server

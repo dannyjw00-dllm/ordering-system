@@ -9,79 +9,137 @@
 </head>
 
 <body class="order-page">
-    <div class="container">
-        <h1>老婆不爱——螺蛳粉</h1>
-        <form id="orderForm">
-            <!-- Row 1: Portion & Dining Type -->
-            <div class="form-row">
-                <div class="form-group half">
-                    <label for="portion">分量 Portion</label>
-                    <select id="portion" name="portion">
-                        <option value="大 Big">大 Big</option>
-                        <option value="小 Small">小 Small</option>
-                    </select>
-                </div>
-                <div class="form-group half">
-                    <label for="diningType">Dining Type</label>
-                    <select id="diningType" name="diningType">
-                        <option value="Dine In">Dine In</option>
-                        <option value="Take Away">Take Away</option>
-                    </select>
-                </div>
-            </div>
+    <div class="split-container">
+        <div class="left-panel">
+            <img src="images/menu_preview.png" alt="Menu" class="menu-image">
+        </div>
+        <div class="right-panel">
+            <div class="form-card">
+                <h1>老婆不爱——螺蛳粉</h1>
+                <form id="orderForm">
+                    <!-- Name & H/P No. -->
+                    <div class="form-group">
+                        <label for="customerName">Name & H/P No. (Last 5 Digit)</label>
+                        <input type="text" id="customerName" name="customerName" placeholder="e.g. Danny 12345"
+                            required>
+                    </div>
 
-            <!-- Row 2: Spicy Level -->
-            <div class="form-group">
-                <label for="spicyLevel">辣度 Spicy Level</label>
-                <select id="spicyLevel" name="spicyLevel">
-                    <option value="小辣">小辣 (Mild)</option>
-                    <option value="普通辣">普通辣 (Medium)</option>
-                    <option value="大辣">大辣 (Hot)</option>
-                    <option value="爆辣">爆辣 (Super Hot)</option>
-                </select>
-            </div>
-            <br>
-            <!-- Checkboxes: With (要) -->
-            <div class="form-group checkbox-group">
-                <label>要 With:</label>
-                <div class="checkbox-item">
-                    <input type="checkbox" name="withOptions" value="炸蛋、金针菇和腐竹">
-                    <label>炸蛋、金针菇和腐竹</label>
-                </div>
-                <div class="checkbox-item">
-                    <input type="checkbox" name="withOptions" value="香菜">
-                    <label>香菜</label>
-                </div>
-            </div>
-            <br>
-            <!-- Checkboxes: Without (不要) -->
-            <div class="form-group checkbox-group">
-                <label>不要 Without:</label>
-                <div class="checkbox-grid">
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions" value="炸蛋"><label>炸蛋</label>
+                    <!-- Row 1: Portion & Dining Type -->
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="portion">分量 Portion</label>
+                            <select id="portion" name="portion" required>
+                                <option value="大 Big">大 Big</option>
+                                <option value="小 Small">小 Small</option>
+                            </select>
+                        </div>
+                        <div class="form-group half">
+                            <label for="diningType">Dining Type</label>
+                            <select id="diningType" name="diningType" required>
+                                <option value="堂食 Dine In">堂食 Dine In</option>
+                                <option value="打包 Take Away">打包 Take Away</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions" value="香菜"><label>香菜</label>
-                    </div>
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
-                            value="金针菇"><label>金针菇</label></div>
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions" value="花生"><label>花生</label>
-                    </div>
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions" value="腐竹"><label>腐竹</label>
-                    </div>
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions" value="酸笋"><label>酸笋</label>
-                    </div>
-                    <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
-                            value="酸豆角、木耳、菜脯"><label>酸豆角、木耳、菜脯</label></div>
-                </div>
-            </div>
 
-            <div class="form-group">
-                <label for="notes">Remarks</label>
-                <textarea id="notes" name="notes" rows="2"></textarea>
-            </div>
+                    <!-- With (Optional Checkbox) -->
+                    <div class="form-group checkbox-group">
+                        <label>要 With:</label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="withOptions" value="炸蛋 + 金针菇 + 腐竹 (+RM 0.90)">
+                            <label>炸蛋 + 金针菇 + 腐竹 (+RM 0.90)</label>
+                        </div>
+                    </div>
+                    <br>
 
-            <button type="submit" class="btn-submit">Submit Order</button>
-        </form>
+                    <!-- Spicy Level (Radio Buttons) -->
+                    <div class="form-group">
+                        <label>辣度 Spicy Level (Optional)</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item">
+                                <input type="radio" name="spicyLevel" value="Level 1 —— 微辣">
+                                <label>Level 1 —— 微辣</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="spicyLevel" value="Level 2 —— 普通辣">
+                                <label>Level 2 —— 普通辣</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" name="spicyLevel" value="Max Level —— 爆辣 (+RM 2.00)">
+                                <label>Max Level —— 爆辣 (+RM 2.00)</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Without (Optional Checkboxes) -->
+                    <div class="form-group checkbox-group">
+                        <label>不要 Without:</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="炸蛋"><label>炸蛋</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="香菜"><label>香菜</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="金针菇"><label>金针菇</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="花生"><label>花生</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="腐竹"><label>腐竹</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="酸笋"><label>酸笋</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="withoutOptions"
+                                    value="酸豆角、木耳、菜脯"><label>酸豆角、木耳、菜脯</label></div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Ala-cart Toppings RM1.50 -->
+                    <div class="form-group checkbox-group">
+                        <label>单点配料 Ala-cart Toppings (RM1.50):</label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="alaCart150" value="炸蛋——Egg Boom">
+                            <label>炸蛋——Egg Boom</label>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Ala-cart Toppings RM2.00 -->
+                    <div class="form-group checkbox-group">
+                        <label>单点配料 Ala-cart Toppings (RM2.00):</label>
+                        <div class="checkbox-grid">
+                            <div class="checkbox-item"><input type="checkbox" name="alaCart200"
+                                    value="金针菇——Enoki"><label>金针菇——Enoki</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="alaCart200"
+                                    value="腐竹——Beancurd"><label>腐竹——Beancurd</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="alaCart200"
+                                    value="臭干豆腐——Stinky Tofu"><label>臭干豆腐——Stinky Tofu</label></div>
+                            <div class="checkbox-item"><input type="checkbox" name="alaCart200"
+                                    value="辣椒油/爆辣——Chili Oil"><label>辣椒油/爆辣——Chili Oil</label></div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <!-- Payment Method -->
+                    <div class="form-group">
+                        <label for="paymentMethod">付款方式 Pay by</label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="QR Pay">QR Pay</option>
+                            <option value="Cash">Cash</option>
+                            <option value="Voucher + QR Pay">Voucher + QR Pay</option>
+                            <option value="Voucher + Cash">Voucher + Cash</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Remarks</label>
+                        <textarea id="notes" name="notes" rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Submit Order</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
